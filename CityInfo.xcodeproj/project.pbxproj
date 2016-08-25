@@ -12,6 +12,8 @@
 		A32A39621D6EBA2600AE401E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32A39601D6EBA2600AE401E /* Main.storyboard */; };
 		A32A39641D6EBA2600AE401E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A32A39631D6EBA2600AE401E /* Assets.xcassets */; };
 		A32A39671D6EBA2600AE401E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32A39651D6EBA2600AE401E /* LaunchScreen.storyboard */; };
+		A32A396F1D6EC35900AE401E /* WikiItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A396E1D6EC35900AE401E /* WikiItemVC.swift */; };
+		A32A39731D6EC3CA00AE401E /* InfoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A39721D6EC3CA00AE401E /* InfoItemVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		A32A39631D6EBA2600AE401E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A32A39661D6EBA2600AE401E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A32A39681D6EBA2600AE401E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A32A396E1D6EC35900AE401E /* WikiItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiItemVC.swift; sourceTree = "<group>"; };
+		A32A39721D6EC3CA00AE401E /* InfoItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoItemVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				A32A395C1D6EBA2600AE401E /* AppDelegate.swift */,
 				A32A395E1D6EBA2600AE401E /* ViewController.swift */,
+				A32A396E1D6EC35900AE401E /* WikiItemVC.swift */,
+				A32A39721D6EC3CA00AE401E /* InfoItemVC.swift */,
 				A32A39601D6EBA2600AE401E /* Main.storyboard */,
 				A32A39631D6EBA2600AE401E /* Assets.xcassets */,
 				A32A39651D6EBA2600AE401E /* LaunchScreen.storyboard */,
@@ -137,6 +143,8 @@
 			files = (
 				A32A395F1D6EBA2600AE401E /* ViewController.swift in Sources */,
 				A32A395D1D6EBA2600AE401E /* AppDelegate.swift in Sources */,
+				A32A396F1D6EC35900AE401E /* WikiItemVC.swift in Sources */,
+				A32A39731D6EC3CA00AE401E /* InfoItemVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

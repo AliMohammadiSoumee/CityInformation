@@ -10,16 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var enterYourLocationLb: UILabel!
+    @IBOutlet weak var getCityNameTF: UITextField!
+    @IBOutlet weak var submitBt: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
+    @IBAction func checkCityName(sender: UIButton) {
+        performSegueWithIdentifier("ShowMainTabBar", sender: nil)
+    }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var wikiItem = WikiItemVC()
+        var infoItem = InfoItemVC()
+    }
 }
 
