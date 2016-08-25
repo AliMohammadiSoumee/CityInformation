@@ -9,12 +9,11 @@
 import UIKit
 
 class WikiItemVC: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-    
     
 
     override func didReceiveMemoryWarning() {
