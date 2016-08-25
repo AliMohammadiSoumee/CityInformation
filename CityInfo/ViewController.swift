@@ -65,6 +65,14 @@ class ViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var wikiItem = WikiItemVC()
         var infoItem = InfoItemVC()
+        
+        if let temp = self.json["main"]!["temp"] as? Int
+            , let pressure = self.json["main"]!["pressure"] as? Int
+            , let humidity = self.json["main"]!["humidity"] as? Int
+            , let lon = self.json["coord"]!["lon"] as? Int
+            , let lat = self.json["coord"]!["lat"] as? Int {
+            infoItem.edit(temp, pressure: pressure, humidity: humidity, lon: lon, lat: lat)
+        }
     }
 }
 
