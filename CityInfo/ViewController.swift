@@ -69,6 +69,13 @@ class ViewController: UIViewController {
             let temp = segue.destinationViewController as! UITabBarController
             let infoItem = temp.viewControllers![0] as! InfoItemVC
             let wikiItem = temp.viewControllers![1] as! WikiItemVC
+            let mapItem = temp.viewControllers![2] as! MapVC
+            
+            
+            if let lon = self.json["coord"]!["lon"] as? Double
+                , let lat = self.json["coord"]!["lat"] as? Double {
+                mapItem.editLocation(lon, lat: lat)
+            }
             
             if let name = self.json["name"] {
                 print(name)
