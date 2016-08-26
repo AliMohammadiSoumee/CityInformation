@@ -10,12 +10,25 @@ import UIKit
 
 class WikiItemVC: UIViewController {
     
+    
+    var urlString = String()
+    
+    @IBOutlet weak var wikiWV: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if let url = NSURL(string: urlString) {
+            let request = NSURLRequest(URL: url)
+            wikiWV.loadRequest(request)
+        }
+        else {
+            print("error")
+        }
     }
     
-
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 

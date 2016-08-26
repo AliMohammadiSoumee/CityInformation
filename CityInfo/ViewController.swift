@@ -63,15 +63,25 @@ class ViewController: UIViewController {
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var wikiItem = WikiItemVC()
-        var infoItem = InfoItemVC()
-        
-        if let temp = self.json["main"]!["temp"] as? Int
-            , let pressure = self.json["main"]!["pressure"] as? Int
-            , let humidity = self.json["main"]!["humidity"] as? Int
-            , let lon = self.json["coord"]!["lon"] as? Int
-            , let lat = self.json["coord"]!["lat"] as? Int {
-            infoItem.edit(temp, pressure: pressure, humidity: humidity, lon: lon, lat: lat)
+        if segue.identifier == "ShowMainTabBar"{
+            //var wikiItem = WikiItemVC()
+            //var infoItem = InfoItemVC()
+            let temp = segue.destinationViewController as! UITabBarController
+            let infoItem = temp.viewControllers![0] as! InfoItemVC
+            let wikiItem = temp.viewControllers![1] as! WikiItemVC
+            
+            if let name = self.json["name"] {
+                print(name)
+                wikiItem.urlString = "https://en.wikipedia.org/wiki/\(name)"
+            }
+            
+            if let temp = self.json["main"]!["temp"] as? Int
+                , let pressure = self.json["main"]!["pressure"] as? Int
+                , let humidity = self.json["main"]!["humidity"] as? Int
+                , let lon = self.json["coord"]!["lon"] as? Int
+                , let lat = self.json["coord"]!["lat"] as? Int {
+                infoItem.edit(temp, pressure: pressure, humidity: humidity, lon: lon, lat: lat)
+            }
         }
     }
 }

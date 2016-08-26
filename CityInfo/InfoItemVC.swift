@@ -17,7 +17,6 @@ class InfoItemVC: UIViewController {
     @IBOutlet weak var longitudeLb: UILabel!
     @IBOutlet weak var latitudeLb: UILabel!
 
-    
     var temp: Int!
     var pressure: Int!
     var humidity: Int!
@@ -34,9 +33,6 @@ class InfoItemVC: UIViewController {
     }
     
     
-    
-    
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -45,17 +41,15 @@ class InfoItemVC: UIViewController {
         humidityLb.text = "\(humidity)"
         longitudeLb.text = "\(lon)"
         latitudeLb.text = "\(lat)"
-
-       
     }
  
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
     
-
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
     }
