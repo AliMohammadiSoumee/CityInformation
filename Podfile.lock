@@ -1,0 +1,18 @@
+PODS:
+  - FXBlurView (1.6.4)
+  - PopupDialog (0.3.0):
+    - FXBlurView
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - PopupDialog (~> 0.3)
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
+  PopupDialog: 6d911ffba0607b89a4d310a036bc1ced9e7e9d80
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+PODFILE CHECKSUM: 08eb94b009579bd1d4394263769a8cdfb2c88283
+
+COCOAPODS: 1.0.1

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PopupDialog
 
 class ViewController: UIViewController {
 
@@ -23,13 +24,11 @@ class ViewController: UIViewController {
     }
 
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
 
-    
     
     @IBAction func checkCityName(sender: UIButton) {
         let urlString: String = "http://api.openweathermap.org/data/2.5/weather?q=\(getCityNameTF.text!)&APPID=e3a22a7b27e1b81c1bb76e7e2c5efd70"
@@ -39,7 +38,6 @@ class ViewController: UIViewController {
             if let data = data {
                 do{
                     self.json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as! Dictionary<String, AnyObject>
-                    print(self.json["cod"] as? Int)
                     
                     if self.json["cod"] as? Int == 200{
                         dispatch_async(dispatch_get_main_queue()) {
@@ -47,7 +45,10 @@ class ViewController: UIViewController {
                         }
                     }
                     else{
-                        print("error")
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.editPopup("Error", message: "Your entrance city is not available", bt1: "OK")
+                            self.getCityNameTF.text = ""
+                        }
                     }
                 }
                 catch{
@@ -64,13 +65,10 @@ class ViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowMainTabBar"{
-            //var wikiItem = WikiItemVC()
-            //var infoItem = InfoItemVC()
             let temp = segue.destinationViewController as! UITabBarController
             let infoItem = temp.viewControllers![0] as! InfoItemVC
             let wikiItem = temp.viewControllers![1] as! WikiItemVC
             let mapItem = temp.viewControllers![2] as! MapVC
-            
             
             if let lon = self.json["coord"]!["lon"] as? Double
                 , let lat = self.json["coord"]!["lat"] as? Double {
@@ -78,7 +76,6 @@ class ViewController: UIViewController {
             }
             
             if let name = self.json["name"] {
-                print(name)
                 wikiItem.urlString = "https://en.wikipedia.org/wiki/\(name)"
             }
             
@@ -86,11 +83,35 @@ class ViewController: UIViewController {
                 , let pressure = self.json["main"]!["pressure"] as? Int
                 , let humidity = self.json["main"]!["humidity"] as? Int
                 , let lon = self.json["coord"]!["lon"] as? Int
-                , let lat = self.json["coord"]!["lat"] as? Int {
-                infoItem.edit(temp, pressure: pressure, humidity: humidity, lon: lon, lat: lat)
+                , let lat = self.json["coord"]!["lat"] as? Int
+                , let desc = self.json["weather"]![0]!["description"] as? String {
+                infoItem.edit(temp, pressure: pressure, humidity: humidity, lon: lon, lat: lat, desc: desc)
             }
         }
     }
+    
+
+    func editPopup(title: String , message: String, bt1: String) {
+        let popup = PopupDialog(title: title, message: message)
+        let button1 = DefaultButton(title: bt1, action: .None)
+        popup.addButton(button1)
+        self.presentViewController(popup, animated: true, completion: nil)
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

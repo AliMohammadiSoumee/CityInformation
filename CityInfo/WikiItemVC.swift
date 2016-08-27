@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import PopupDialog
 
 class WikiItemVC: UIViewController {
-    
-    
+
     var urlString = String()
     
     @IBOutlet weak var wikiWV: UIWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,11 +23,9 @@ class WikiItemVC: UIViewController {
             wikiWV.loadRequest(request)
         }
         else {
-            print("error")
+            editPopup("Ooops", message: "This city doesn't have wiki page", bt1: "OK")
         }
     }
-    
-    
     
     
     override func didReceiveMemoryWarning() {
@@ -35,10 +34,16 @@ class WikiItemVC: UIViewController {
     }
     
     
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
     }
  
+
+    func editPopup(title: String , message: String, bt1: String) {
+        let popup = PopupDialog(title: title, message: message)
+        let button1 = DefaultButton(title: bt1, action: .None)
+        popup.addButton(button1)
+        self.presentViewController(popup, animated: true, completion: nil)
+    }
 
 }

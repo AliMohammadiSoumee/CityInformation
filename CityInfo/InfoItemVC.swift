@@ -22,20 +22,23 @@ class InfoItemVC: UIViewController {
     var humidity: Int!
     var lon: Int!
     var lat: Int!
+    var desc: String!
     
     
-    func edit(temp: Int, pressure: Int, humidity: Int, lon: Int, lat: Int){
+    func edit(temp: Int, pressure: Int, humidity: Int, lon: Int, lat: Int, desc: String){
         self.temp = temp
         self.pressure = pressure
         self.humidity = humidity
         self.lon = lon
         self.lat = lat
+        self.desc = desc
     }
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        descriptionLb.text = desc
         tempLb.text = "\(temp)"
         pressureLb.text = "\(pressure)"
         humidityLb.text = "\(humidity)"
